@@ -63,8 +63,11 @@ export const Home = (props) => {
             dataIndex: 'TEMP',
             key: 'TEMP',
             sorter: (recordA, recordB) => {
-                if (recordA.TEMP < recordB.TEMP) return -1;
-                if (recordB.TEMP < recordA.TEMP) return 1;
+                const tempA = recordA.TEMP == '無資料' ? -1 : recordA.TEMP;
+                const tempB = recordB.TEMP == '無資料' ? -1 : recordB.TEMP;
+
+                if (tempA < tempB) return -1;
+                if (tempB < tempA) return 1;
                 return 0;
             },
             sortDirections: ['ascend', 'descend']
