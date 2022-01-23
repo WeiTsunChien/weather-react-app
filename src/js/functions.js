@@ -1,22 +1,15 @@
 export const getPeriod = (_startTime) => {
-    //console.log('getPeriod', _startTime);
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth();
     const date = today.getDate();
 
     const todayDayStartTime = new Date(year, month, date, 6);
-    //console.log('今天白天開始時間', todayDayStartTime);
     const todayNightStartTime = new Date(year, month, date, 18);
-    //console.log('今天夜晚開始時間', todayNightStartTime);
-
     const tomorrowDayStartTime = new Date(year, month, date + 1, 6);
-    //console.log('明天白天開始時間', tomorrowDayStartTime);
     const tomorrowNightStartTime = new Date(year, month, date + 1, 18);
-    //console.log('明天夜晚開始時間', tomorrowNightStartTime);
 
     const startTime = new Date(_startTime);
-    //console.log('某個開始時間', startTime);
 
     if (startTime.toString() == todayDayStartTime.toString()) {
         return '今天白天';

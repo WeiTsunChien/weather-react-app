@@ -2,7 +2,6 @@ export const flattenObject = (obj) => {
     var result = {};
 
     for (var key in obj) {
-        //console.log("key", key);
 
         if (!obj.hasOwnProperty(key))
             continue;
@@ -11,8 +10,6 @@ export const flattenObject = (obj) => {
             var flatObject = flattenObject(obj[key]);
 
             for (var key1 in flatObject) {
-                //console.log("key1", key1);
-
                 if (!flatObject.hasOwnProperty(key1))
                     continue;
 

@@ -7,9 +7,6 @@ import WeatherImage from './WeatherImage';
 
 const DetailModal = (props) => {
     const { isModalVisible, closeModal, forecasts, record } = props;
-    //console.log('isModalVisible', isModalVisible);
-    //console.log('天氣預報', forecasts);
-    //console.log('天氣報告', record);
 
     const columns = [
         {
@@ -53,6 +50,7 @@ const DetailModal = (props) => {
     return (
         <Modal visible={isModalVisible}
             onCancel={closeModal}
+            width={660}
             footer={null}>
             <Row>
                 <Col span={16}>

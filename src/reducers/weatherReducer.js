@@ -18,13 +18,8 @@ const INIT_STATE = {
 export default function (state = INIT_STATE, action) {
     switch (action.type) {
         case GET_CURRENT_WEATHER_REPORTS:
-            //console.log("weatherReducer 取得當前天氣報告");
-
             let cities = action.payload.map(item => item.CITY);
-            //console.log(cities);
-
             let uniqueCities = [...new Set(cities)];
-            //console.log(uniqueCities);
 
             let cityFilters = uniqueCities.map((city) => {
                 return {

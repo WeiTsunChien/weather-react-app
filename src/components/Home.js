@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { CSVLink } from 'react-csv';
-import { Table, Tooltip, Checkbox, Button, Modal } from 'antd';
+import { Table, Tooltip, Checkbox, Button, Modal, Row, Col } from 'antd';
 import { ExportOutlined, ReloadOutlined, ProfileTwoTone } from '@ant-design/icons';
 import DetailModal from './DetailModal';
 import { getCurrentWeatherReports, getWeatherForecasts, getSumTime } from '../actions/weatherAction';
@@ -90,17 +90,13 @@ export const Home = (props) => {
     ]
 
     const getReports = async () => {
-        //console.log("取得報告 1");
         setGettingReports(true);
         await getCurrentWeatherReports();
         setGettingReports(false);
-        //console.log("取得報告 2");
     }
 
     const showModal = async (record) => {
-        //console.log(record.obsTime);
         const obsDate = record.obsTime.split(' ')[0];
-        //console.log('觀測日期', obsDate);
         setGettingModalData(true);
         await getWeatherForecasts(record.CITY);
         await getSumTime(record.CITY, obsDate);
@@ -114,19 +110,14 @@ export const Home = (props) => {
     };
 
     useEffect(async () => {
-        //console.log("useEffect 1");
         await getReports();
-        //console.log("useEffect 2");
         return () => {
-            //console.log("useEffect return");
         }
     }, []);
 
     const rowSelection = {
         type: 'checkbox',
         onChange: (selectedRowKeys, selectedRows) => {
-            //console.log('選定的行鍵', selectedRowKeys);
-            //console.log('選定的行', selectedRows);
             setSelectedRows(selectedRows);
         },
         getCheckboxProps: (record) => ({
@@ -140,22 +131,28 @@ export const Home = (props) => {
         }
     };
 
-    //console.log("Home 返回");
     return (
-        <>
-            <CSVLink
-                data={selectedRows.length ? selectedRows : reports}
-                headers={csvHeaders}
-                filename={"my-weather-reports.csv"}
-                className="btn btn-primary"
-                target="_blank">
-                <Button type="primary" icon={<ExportOutlined />} loading={gettingReports}>
-                    Export
-                </Button>
-            </CSVLink>
-            <Button type="primary" icon={<ReloadOutlined />} loading={gettingReports} onClick={getReports}>
-                Refresh
-            </Button>
+        <div className='container'>
+            <Row className='app-header'>
+                <Col span={16}>
+                    <h2>即時天氣</h2>
+                </Col>
+                <Col span={8} className='btn-box'>
+                    <CSVLink
+                        data={selectedRows.length ? selectedRows : reports}
+                        headers={csvHeaders}
+                        filename={"my-weather-reports.csv"}
+                        className="btn btn-primary"
+                        target="_blank">
+                        <Button type="primary" className='btn-round-corner' icon={<ExportOutlined />} loading={gettingReports}>
+                            Export
+                        </Button>
+                    </CSVLink>
+                    <Button type="primary" className='btn-round-corner ml-3' icon={<ReloadOutlined />} loading={gettingReports} onClick={getReports}>
+                        Refresh
+                    </Button>
+                </Col>
+            </Row>
             <Table
                 rowSelection={rowSelection}
                 rowKey={record => record.stationId}
@@ -167,7 +164,7 @@ export const Home = (props) => {
                 isModalVisible={isModalVisible}
                 record={modalRecord}
                 closeModal={closeModal} />
-        </>
+        </div>
     )
 }
 
