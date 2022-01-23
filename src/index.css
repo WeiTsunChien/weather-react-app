@@ -1,0 +1,65 @@
+html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem !important;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem !important;
+}
+
+h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem !important;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem !important;
+}
+
+h5 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem !important;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem !important;
+}
+
+.modal-temp {
+    font-size: 6rem;
+    line-height: 1;
+    position: relative;
+}
+
+.modal-temp .unit {
+    font-size: 2rem;
+    position: absolute;
+    top: 5px;
+}
+
+.modal-info {
+    padding: 15px 0;
+}
+
+.modal-info-item {
+    padding: 5px;
+}
+
+.modal-info-item img {
+    width: 1.75rem;
+}
+
+.modal-info-item span {
+    padding: 10px;
+}
+
+.weather-image {
+    padding-top: 20px;
+}

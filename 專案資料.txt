@@ -1,0 +1,54 @@
+資料項目代碼
+有效會員之授權碼
+
+授權碼
+CWB-50F23768-F561-4BBE-8286-A1903C3A0630
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/{dataid}?Authorization={apikey}&format={format}
+               
+{dataid} 為資料編號 (參照：資料清單)  ex.F-C0032-001
+               
+{apikey} 為會員帳號對應之授權碼  ex.CWB-1234ABCD-78EF-GH90-12XY-IJKL12345678
+               
+{format} 為回傳資料格式  ex.XML、JSON(預設)
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-50F23768-F561-4BBE-8286-A1903C3A0630
+
+在 HTTP header 裡設定屬性 Authorization 的值為會員授權碼
+
+API清單 - 中央氣象局開放資料平臺之資料擷取API
+https://opendata.cwb.gov.tw/dist/opendata-swagger.html
+
+第一個 API
+局屬氣象站-現在天氣觀測報告
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-50F23768-F561-4BBE-8286-A1903C3A0630&elementName=WDSD,TEMP,Weather
+
+主要欄位說明
+/O-A0003-001 局屬氣象站-現在天氣觀測報告
+https://opendata.cwb.gov.tw/opendatadoc/DIV2/A0003-001.pdf
+
+obsTime 觀測資料時間
+WDSD 風速，單位 公尺/秒
+TEMP 溫度，單位 攝氏
+Weather 十分鐘天氣現象描述
+HUMD 相對濕度，單位 百分比率，此處以實數 0-1.0 記錄
+
+
+/F-C0032-001 一般天氣預報-今明 36 小時天氣預報
+https://opendata.cwb.gov.tw/dataset/statisticDays/F-C0032-001
+https://opendata.cwb.gov.tw/opendatadoc/MFC/ForecastElement.pdf
+
+Wx(天氣現象)、
+MaxT(最高溫度)、
+MinT(最低溫度)、
+CI(舒適度)、
+PoP(降雨機率)
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-50F23768-F561-4BBE-8286-A1903C3A0630&locationName=%E8%8A%B1%E8%93%AE%E7%B8%A3&elementName=&sort=time
+
+
+/A-B0062-001 日出日沒時刻-全臺各縣市年度逐日日出日沒時刻資料
+https://opendata.cwb.gov.tw/opendatadoc/SAO/B0062-001.pdf
+
+
