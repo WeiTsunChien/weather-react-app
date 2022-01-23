@@ -8,7 +8,6 @@ export const getPeriod = (_startTime) => {
     const todayNightStartTime = new Date(year, month, date, 18);
     const tomorrowDayStartTime = new Date(year, month, date + 1, 6);
     const tomorrowNightStartTime = new Date(year, month, date + 1, 18);
-
     const startTime = new Date(_startTime);
 
     if (startTime.toString() == todayDayStartTime.toString()) {
@@ -24,7 +23,10 @@ export const getPeriod = (_startTime) => {
         return '明天晚上';
     }
     else {
-        if (todayDayStartTime <= startTime && startTime <= todayNightStartTime) {
+        if (startTime < todayDayStartTime) {
+            return '今天深夜';
+        }
+        else if (todayDayStartTime <= startTime && startTime <= todayNightStartTime) {
             return '今天白天';
         }
         else if (todayNightStartTime <= startTime && startTime <= tomorrowDayStartTime) {
