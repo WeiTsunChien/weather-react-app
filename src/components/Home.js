@@ -146,7 +146,7 @@ export const Home = (props) => {
             <CSVLink
                 data={selectedRows.length ? selectedRows : reports}
                 headers={csvHeaders}
-                filename={"my-file.csv"}
+                filename={"my-weather-reports.csv"}
                 className="btn btn-primary"
                 target="_blank">
                 <Button type="primary" icon={<ExportOutlined />} loading={gettingReports}>
