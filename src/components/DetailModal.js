@@ -55,10 +55,10 @@ const DetailModal = (props) => {
             <Row>
                 <Col span={16}>
                     <h1>{`${record.CITY} ${record.TOWN}`}</h1>
-                    <h3>{record.Weather == '' ? wxName : record.Weather}</h3>
+                    <h3>{record.Weather == '無資料' ? wxName : record.Weather}</h3>
                     <Row>
                         <Col span={13}>
-                            {record.TEMP == '' ?
+                            {record.TEMP == '無資料' ?
                                 '無溫度資料' :
                                 (
                                     <div className='modal-temp'>

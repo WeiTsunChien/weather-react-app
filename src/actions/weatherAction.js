@@ -26,14 +26,14 @@ export const getCurrentWeatherReports = () => async dispatch => {
                 weatherElement.TEMP = Math.round(weatherElement.TEMP);
 
                 if (weatherElement.TEMP == -99)
-                    weatherElement.TEMP = '';
+                    weatherElement.TEMP = '無資料';
 
                 weatherElement.WDSD = weatherElement.WDSD == "-99" ?
-                    '' :
+                    '無資料' :
                     `${Number(weatherElement.WDSD).toFixed(1)}m/h`;
 
                 if (weatherElement.Weather == '-99')
-                    weatherElement.Weather = '';
+                    weatherElement.Weather = '無資料';
 
                 return { ...level1Obj, ...time, ...weatherElement, ...parameter };
             });
