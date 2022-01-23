@@ -125,8 +125,8 @@ export const Home = (props) => {
     const rowSelection = {
         type: 'checkbox',
         onChange: (selectedRowKeys, selectedRows) => {
-            console.log('選定的行鍵', selectedRowKeys);
-            console.log('選定的行', selectedRows);
+            //console.log('選定的行鍵', selectedRowKeys);
+            //console.log('選定的行', selectedRows);
             setSelectedRows(selectedRows);
         },
         getCheckboxProps: (record) => ({
@@ -140,7 +140,7 @@ export const Home = (props) => {
         }
     };
 
-    console.log("Home 返回");
+    //console.log("Home 返回");
     return (
         <>
             <CSVLink

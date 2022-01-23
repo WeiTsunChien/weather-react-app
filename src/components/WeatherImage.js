@@ -27,22 +27,22 @@ import nightThunderstorm from '../assets/images/night-thunderstorm.svg';
 
 export const WeatherImage = (props) => {
     const { wxValue, sumTime } = props;
-    console.log('天氣現象數值', wxValue);
-    console.log('太陽時間', sumTime);
+    //console.log('天氣現象數值', wxValue);
+    //console.log('太陽時間', sumTime);
 
     const now = new Date();
     const sunriseTime = new Date(`${sumTime.date} ${sumTime.sunriseTime}`);
     const sunsetTime = new Date(`${sumTime.date} ${sumTime.sunsetTime}`);
-    console.log('現在', now);
-    console.log('日出', sunriseTime);
-    console.log('日落', sunsetTime);
+    //console.log('現在', now);
+    //console.log('日出', sunriseTime);
+    //console.log('日落', sunsetTime);
 
     let isDay = false;
     if (sunriseTime <= now && now <= sunsetTime) {
         isDay = true;
     }
 
-    console.log(`現在是 ${isDay ? '白天' : '夜晚'}`);
+    //console.log(`現在是 ${isDay ? '白天' : '夜晚'}`);
 
     let imgSrc = '';
     const wxCode = Number(wxValue);
@@ -80,7 +80,7 @@ export const WeatherImage = (props) => {
             imgSrc = nightThunderstorm;
     }
 
-    console.log(imgSrc);
+    //console.log(imgSrc);
 
     return (
         <div className='weather-image'>

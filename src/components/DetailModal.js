@@ -8,8 +8,8 @@ import WeatherImage from './WeatherImage';
 const DetailModal = (props) => {
     const { isModalVisible, closeModal, forecasts, record } = props;
     //console.log('isModalVisible', isModalVisible);
-    console.log('天氣預報', forecasts);
-    console.log('天氣報告', record);
+    //console.log('天氣預報', forecasts);
+    //console.log('天氣報告', record);
 
     const columns = [
         {
